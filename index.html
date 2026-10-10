@@ -1,7 +1,10 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Enneagram Type Finder</title><link rel="stylesheet" href="style.css"></head><body>
+<meta name="color-scheme" content="light dark"><meta name="description" content="Original Enneagram type-finder: 63 statements, your type, wing subtype, and detailed descriptions.">
+<title>Enneagram Type Finder</title><link rel="stylesheet" href="style.css">
+<script>try{const t=localStorage.getItem("enneagram-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body>
 <a class="skip" href="#main">Skip to content</a>
-<header><nav aria-label="Main"><a href="#/" class="brand">◎ Enneagram</a><a href="#/">Intro</a><a href="#/quiz">Quiz</a><a href="#/types">All types</a></nav></header>
+<header><nav aria-label="Main"><a href="#/" class="brand"><span aria-hidden="true">◎</span> Enneagram</a><div class="links"><a href="#/quiz">Quiz</a><a href="#/types">Types</a><a href="#/wings">Wings</a><button id="theme" class="icon" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button></div></nav></header>
 <main id="main" tabindex="-1"></main>
+<div id="live" class="sr" aria-live="polite"></div>
 <footer><p>A self-reflection tool, not a clinical or psychological assessment. Original questions and descriptions.</p></footer>
-<script src="data.js"></script><script src="app.js"></script></body></html>
+<script src="data.js"></script><script src="wings.js"></script><script src="app.js"></script></body></html>
