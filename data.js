@@ -29,7 +29,8 @@ function score(answers){ // answers: array of 1..5 aligned to QUESTIONS
   QUESTIONS.forEach((q,i)=>{const a=answers[i];if(a){raw[q.type]+=a-1;}max[q.type]+=4;});
   const pct={};for(let t=1;t<=9;t++)pct[t]=Math.round(100*raw[t]/max[t]);
   const ranked=Object.keys(pct).map(Number).sort((a,b)=>pct[b]-pct[a]);
-  const top=ranked[0];const [wa,wb]=wingsOf(top);const wing=pct[wa]>=pct[wb]?wa:wb;
-  return {pct,ranked,top,wing,close:pct[top]-pct[ranked[1]]<=5};
+  const top=ranked[0];const [wa,wb]=wingsOf(top);const wing=pct[wa]>=pct[wb]?wa:wb,other=wing===wa?wb:wa;
+  const gap=pct[wing]-pct[other];const wingStrength=gap<=5?"Balanced":gap<=15?"Moderate":"Strong";
+  return {pct,ranked,top,wing,otherWing:other,wingGap:gap,wingStrength,subtype:top+"w"+wing,close:pct[top]-pct[ranked[1]]<=5};
 }
 if(typeof module!=="undefined")module.exports={TYPES,QUESTIONS,score,wingsOf};
